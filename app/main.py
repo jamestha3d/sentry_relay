@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Response
 from app.api.v1.routes import sentry
 
 app = FastAPI(
@@ -13,6 +13,14 @@ app.include_router(sentry.router, prefix="/v1", tags=["Sentry"])
 async def root():
     return {"message": "Hello World"}
 
-@app.get("/health")
+@app.api_route(
+    "/health", 
+    methods=["GET", "HEAD"], 
+    include_in_schema=False
+)
 async def health():
-    return {"status": "ok"}
+    """
+    Health check endpoint that works for uptime tools.
+    Responds to both GET and HEAD requests.
+    """
+    return Response(content="ok", media_type="text/plain")
