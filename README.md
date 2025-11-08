@@ -24,6 +24,6 @@ ENV=development
 ```
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 
-RENDER james@tangitex.ng
+RENDER james@tangitex.ng: https://sentry-relay-cboi.onrender.com
 BUILD command: pip install --upgrade pip pip install -r requirements.txt
 START command: uvicorn app.main:app --host 0.0.0.0 --port $PORT # PORT set automatically by render, not hardcoding
