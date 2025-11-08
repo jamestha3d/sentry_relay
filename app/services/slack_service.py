@@ -2,7 +2,7 @@ import textwrap
 
 class SlackService:
     @staticmethod
-    def build_slack_message(payload: dict) -> dict:
+    def send_message(payload: dict) -> dict:
         """Format detailed Sentry webhook into a rich Slack Block Kit message."""
 
         event = payload.get("data", {}).get("event", {})
